@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 
 function App() {
   const [weather, setWeather] = useState();
   const [location, setLocation] = useState("");
 
   const fetchData = async () => {
+    const apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY;
+
     const url = `https://api.openweathermap.org/data/2.5/forecast?q=${
       location ? location : "chennai"
-    }&appid=856daf38df45297958368cada9a06396`;
+    }&appid=${apiKey}`;
 
     try {
       const response = await fetch(url);
@@ -98,7 +99,7 @@ function App() {
         />
       </div>
       <div className="flex items-center">
-        <div className="flex flex-col justify-between p-10 w-[25rem] h-[35rem] rounded-[30px] bg-gradient-to-r from-[#90D9E0] to-[#5460E6]">
+        <div className="flex flex-col justify-between p-10 sm:w-[15rem] sm:h-[25rem] md:w-[15rem] md:h-[25rem] lg:w-[25rem] lg:h-[35rem] rounded-[30px] bg-gradient-to-r from-[#90D9E0] to-[#5460E6]">
           <div className="flex flex-col gap-1">
             <span className="font-semibold text-3xl">
               {timeConverter(weather?.list?.[0]?.dt)[0]}
@@ -134,7 +135,7 @@ function App() {
             )}
           </div>
         </div>
-        <div className="flex flex-col justify-between p-10 w-[27rem] h-[32rem] bg-[#222831] rounded-r-[30px] space-y-3">
+        <div className="sm:hidden md:flex lg:flex flex-col justify-between p-10 sm:w-[17rem] sm:h-[22rem] md:w-[27rem] md:h-[22rem] lg:w-[27rem] lg:h-[32rem] bg-[#222831] rounded-r-[30px] space-y-3">
           <div>
             <div className="flex justify-between font-medium text-2xl">
               <span>FEELS LIKE</span>

@@ -5,7 +5,9 @@ function App() {
   const [location, setLocation] = useState("");
 
   const fetchData = async () => {
-    const apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY;
+    const apiKey =
+      import.meta.env.VITE_OPENWEATHER_API_KEY ||
+      "856daf38df45297958368cada9a06396";
 
     const url = `https://api.openweathermap.org/data/2.5/forecast?q=${
       location ? location : "chennai"

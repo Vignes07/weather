@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Search from "./components/Search";
 import CurrentWeather from "./components/CurrentWeather";
 import Forecast from "./components/Forecast";
-import Dash from "./components/Dash";
+// import Dash from "./components/Dash";
 import { useDispatch } from "react-redux";
 import { addZone } from "./reducers/weatherReducer";
 
@@ -111,7 +111,7 @@ function App() {
         />
         <Forecast weather={weather} timeConverter={timeConverter} />
       </div>
-      <Dash weather={weather} timeConverter={timeConverter} />
+      {/*<Dash weather={weather} timeConverter={timeConverter} />*/}
     </div>
   );
 }
